@@ -47,7 +47,7 @@ public class FormatFieldDriver extends Configured implements Tool {
 				
 		Job job = Job.getInstance(conf, FormatFieldDriver.class.getSimpleName());
 		job.setJarByClass(FormatFieldDriver.class);
-		
+		job.setNumReduceTasks(Integer.parseInt(threadNum));
 		
 		FileInputFormat.setInputPaths(job, srcDirName);
 		job.setInputFormatClass(TextInputFormat.class);

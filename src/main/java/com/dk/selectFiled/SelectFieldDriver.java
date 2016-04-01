@@ -38,7 +38,7 @@ public class SelectFieldDriver extends Configured implements Tool {
 				
 		Job job = Job.getInstance(conf, SelectFieldDriver.class.getSimpleName());
 		job.setJarByClass(SelectFieldDriver.class);
-		
+		job.setNumReduceTasks(Integer.parseInt(threadNum));
 		
 		FileInputFormat.setInputPaths(job, srcDirName);
 		job.setInputFormatClass(TextInputFormat.class);

@@ -59,7 +59,7 @@ public class FormatRecDriver extends Configured implements Tool{
 				
 		Job job = Job.getInstance(conf, FormatRecDriver.class.getSimpleName());
 		job.setJarByClass(FormatRecDriver.class);
-		
+		job.setNumReduceTasks(Integer.parseInt(threadNum));
 		
 		FileInputFormat.setInputPaths(job, srcDirName);
 		job.setInputFormatClass(TextInputFormat.class);

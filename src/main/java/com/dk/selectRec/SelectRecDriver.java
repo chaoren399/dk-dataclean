@@ -49,7 +49,7 @@ public class SelectRecDriver extends Configured implements Tool {
 				
 		Job job = Job.getInstance(conf, SelectRecDriver.class.getSimpleName());
 		job.setJarByClass(SelectRecDriver.class);
-		
+		job.setNumReduceTasks(Integer.parseInt(threadNum));
 		
 		FileInputFormat.setInputPaths(job, srcDirName);
 		job.setInputFormatClass(TextInputFormat.class);
